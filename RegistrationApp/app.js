@@ -1,7 +1,7 @@
 // Password is gayasschigga
 const express = require('express');
 const mysql = require('mysql2');
-
+const path = require('path'); // ✅ Add this
 //******** TODO: Insert code to import 'express-session' *********//
 const session = require('express-session');
 
@@ -39,6 +39,8 @@ app.use(session({
 
 app.use(flash());
 
+// Setting the path to the views folder
+app.set('views', path.join(__dirname, 'views')); // ✅ Fixes the "cannot find view" error
 // Setting up EJS
 app.set('view engine', 'ejs');
 
